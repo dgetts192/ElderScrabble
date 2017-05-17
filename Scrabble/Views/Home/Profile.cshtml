@@ -1,0 +1,99 @@
+﻿@model Scrabble.Models.MemberProfile
+@{
+    ViewData["Title"] = "Profile";
+}
+<p>
+    <a href="@Url.Content("~/")">< Back to Leaderboard</a>
+</p>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3>@Model.PlayerName</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <h4>Player Details</h4>
+                <div>
+                    <label>Date of Birth:</label> <span>@Model.DateOfBirth.ToString("dd/MM/yyyy")</span>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <h4>Contact Details</h4>
+                <div>
+                    <label>Telephone Number:</label> <a href="tel:@Model.TelephoneNumber">@Model.TelephoneNumber</a>
+                </div>
+                <div>
+                    <label>Email Address:</label> <a href="mailto:@Model.EmailAddress">@Model.EmailAddress</a>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>Games</h4>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <h5>Stats</h5>
+                        <div>
+                            <label>Wins:</label> <span>@Model.WinCount</span>
+                        </div>
+                        <div>
+                            <label>Losses:</label> <span>@Model.LossCount</span>
+                        </div>
+                        <div>
+                            <label>Average Score:</label> <span>@Model.AverageScore</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <h5>Best Match</h5>
+                        <div>
+                            <div>
+                                <label>Date Played:</label> <span>@Model.HighestDatePlayed.ToString("dd/MM/yyyy")</span>
+                            </div>
+                            <div>
+                                <label>Opponent:</label> <a href="@Url.Content("~/")profile/@Model.HighestOpponentId">@Model.HighestOpponentName</a>
+                            </div>
+                            <div>
+                                <label>Score:</label> <span>@Model.HighestScore</span>
+                            </div>
+                            <div>
+                                <label>Location:</label> <span>@Model.HighestLocation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>Best Game Location</h4>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="map">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        function initMap() {
+            const coords = { lat: @Model.HighestLatitude, lng: @Model.HighestLongitude };
+
+            const map = new google.maps.Map(document.getElementById('map'), {
+                center: coords,
+                zoom: 14
+            });
+
+            const marker = new google.maps.Marker({
+                position: coords,
+                map: map
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVgnRATru0NMXkwzAGmsJ7bj-Ujcmaxag&callback=initMap"></script>
+}

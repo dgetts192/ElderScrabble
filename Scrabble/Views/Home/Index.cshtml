@@ -1,0 +1,36 @@
+﻿@model List<Scrabble.Models.LeaderboardItem>
+@{
+    ViewData["Title"] = "Leaderboard";    
+}
+
+<table id="leaderboard" class="table table-stripped table-bordered table-hover table-responsive">
+    <thead>
+        <tr class="info">
+            <th>Rank</th>
+            <th>Player Name</th>
+            <th>Average Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(var i = 1; i <= Model.Count; i++)
+        {
+            <tr data-id="@Model[i - 1].PlayerId">
+                <td>@i</td>
+                <td>@Model[i - 1].PlayerName</td>
+                <td>@Model[i - 1].AverageScore</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            const $tableRows = $('#leaderboard tr');
+            $tableRows.click(function () {
+                let $this = $(this);
+                window.location.href = `@Url.Content("~/profile")/${$this.data('id')}`;
+            });
+        });
+    </script>
+}

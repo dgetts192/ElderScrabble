@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrabble", "Scrabble\Scrabble.csproj", "{9A4B5C5F-CD8E-45E7-9B37-3413391304D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL Script", "SQL Script", "{834DBFB1-B977-48D2-BA59-6107CEA61D6F}"
+	ProjectSection(SolutionItems) = preProject
+		ScrabbleCreateScript.sql = ScrabbleCreateScript.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A4B5C5F-CD8E-45E7-9B37-3413391304D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A4B5C5F-CD8E-45E7-9B37-3413391304D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A4B5C5F-CD8E-45E7-9B37-3413391304D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A4B5C5F-CD8E-45E7-9B37-3413391304D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
