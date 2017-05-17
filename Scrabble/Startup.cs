@@ -30,7 +30,7 @@ namespace Scrabble
             services.AddMvc();
             services.AddRouting(options => options.LowercaseUrls = true);
 
-            var connection = @"Server=localhost\sqlexpress;Database=Scrabble;Trusted_Connection=True;";
+            var connection = @"data source=scrabble.database.windows.net;initial catalog=Scrabble;user id=scrabble;password=Elder123;multipleactiveresultsets=True;"; //@"Server=localhost\sqlexpress;Database=Scrabble;Trusted_Connection=True;";
             services.AddDbContext<ScrabbleContext>(options => options.UseSqlServer(connection));
 
             services.AddTransient<IScrabbleRepository, ScrableRepository>();
