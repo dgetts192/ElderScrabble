@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrabble", "Scrabble\Scrabb
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL Script", "SQL Script", "{834DBFB1-B977-48D2-BA59-6107CEA61D6F}"
 	ProjectSection(SolutionItems) = preProject
+		ERD.png = ERD.png
 		ScrabbleCreateScript.sql = ScrabbleCreateScript.sql
 	EndProjectSection
 EndProject
